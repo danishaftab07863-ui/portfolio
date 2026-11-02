@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Danish Aftab — CSE student and aspiring Python developer portfolio.">
-    <title>Danish Aftab | Python Developer</title>
+    <title>Danish Aftab | CS & Python Developer</title>
 
     <!-- External Stylesheets -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         /* ==========================================================================
-        1. Dark Theme Variables & Base Styles
+        1. Deep Cyber Dark Base Styles & Updated Text Colors
         ========================================================================== */
         :root {
-            --bg-dark: #0e1117;
-            --bg-card: #161b22;
+            --bg-dark: #050811;
+            --bg-card: rgba(15, 23, 42, 0.85);
             --accent-green: #22c55e;
             --accent-green-bright: #4ade80;
+            --accent-cyan: #38bdf8;
             --text-main: #ffffff;
-            --text-muted: #9ca3af;
-            --border-color: rgba(255, 255, 255, 0.08);
-            --border-accent: rgba(34, 197, 94, 0.3);
+            --text-muted: #cbd5e1;
+            --border-color: rgba(255, 255, 255, 0.12);
+            --border-accent: rgba(56, 189, 248, 0.45);
         }
 
         html {
@@ -60,18 +61,19 @@
         }
 
         p.eyebrow {
-            color: var(--accent-green);
-            font-size: 0.8rem;
+            color: var(--accent-cyan);
+            font-size: 0.85rem;
             letter-spacing: 2px;
             font-weight: 700;
             text-transform: uppercase;
             margin-bottom: 8px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* ==========================================================================
-        2. Canvas & Background
+        2. Neural Network Canvas Background
         ========================================================================== */
-        #bubbleCanvas {
+        #networkCanvas {
             position: fixed;
             top: 0;
             left: 0;
@@ -91,16 +93,28 @@
             padding: 20px 8%;
             position: sticky;
             top: 0;
-            background: rgba(14, 17, 23, 0.85);
-            backdrop-filter: blur(12px);
+            background: rgba(5, 8, 17, 0.88);
+            backdrop-filter: blur(16px);
             z-index: 100;
             border-bottom: 1px solid var(--border-color);
         }
 
+        /* Stylish Danish Aftab Brand Logo */
         .brand {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             font-weight: 800;
             letter-spacing: -0.5px;
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            transition: transform 0.3s ease;
+        }
+
+        .brand:hover {
+            transform: scale(1.03);
+        }
+
+        .brand span {
+            color: var(--accent-green);
         }
 
         .nav nav {
@@ -109,14 +123,14 @@
         }
 
         .nav nav a {
-            color: var(--text-muted);
+            color: #e2e8f0;
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s ease;
         }
 
         .nav nav a:hover {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
         }
 
         .menu {
@@ -151,6 +165,7 @@
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 20px;
+            color: var(--text-main);
         }
 
         .lead {
@@ -188,17 +203,20 @@
         .btn.primary:hover {
             background: var(--accent-green-bright);
             transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.4);
         }
 
         .btn.ghost {
-            background: transparent;
+            background: rgba(15, 23, 42, 0.7);
             border: 1px solid var(--border-color);
             color: var(--text-main);
+            backdrop-filter: blur(8px);
         }
 
         .btn.ghost:hover {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+            box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
         }
 
         .socials-bar,
@@ -217,16 +235,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-muted);
+            color: #e2e8f0;
             font-size: 1rem;
+            backdrop-filter: blur(8px);
             transition: all 0.3s ease;
         }
 
         .socials-bar a:hover,
         .contact-social-icons a:hover {
-            color: var(--accent-green);
-            border-color: var(--accent-green);
+            color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
             transform: translateY(-3px);
+            box-shadow: 0 0 12px rgba(56, 189, 248, 0.35);
         }
 
         /* Profile Card Styling */
@@ -236,13 +256,15 @@
             border: 1px solid var(--border-color);
             border-radius: 24px;
             padding: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(12px);
             transition: transform 0.3s ease, border-color 0.3s ease;
         }
 
         .hero-image-card:hover {
-            border-color: var(--accent-green);
+            border-color: var(--accent-cyan);
             transform: translateY(-5px);
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.2);
         }
 
         .hero-image-card img {
@@ -259,7 +281,7 @@
             bottom: 28px;
             left: 28px;
             right: 28px;
-            background: rgba(22, 27, 34, 0.88);
+            background: rgba(10, 15, 29, 0.92);
             backdrop-filter: blur(12px);
             border: 1px solid var(--border-color);
             padding: 12px 18px;
@@ -270,9 +292,10 @@
         }
 
         .hero-image-card .card-badge span.num {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
             font-weight: 800;
             font-size: 1.1rem;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         .hero-image-card .card-badge span.text {
@@ -295,6 +318,7 @@
         .section-head h2 {
             font-size: 2.2rem;
             font-weight: 700;
+            color: var(--text-main);
         }
 
         .about-content-full {
@@ -302,12 +326,14 @@
             border: 1px solid var(--border-color);
             padding: 35px;
             border-radius: 16px;
+            backdrop-filter: blur(12px);
         }
 
         .about-content-full p.big {
             font-size: 1.25rem;
             font-weight: 600;
             margin-bottom: 15px;
+            color: var(--text-main);
         }
 
         .about-content-full p {
@@ -325,13 +351,14 @@
 
         .facts strong {
             display: block;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--text-main);
         }
 
         .facts small {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
             font-size: 0.95rem;
+            font-weight: 600;
         }
 
         .skills {
@@ -345,17 +372,20 @@
             border: 1px solid var(--border-color);
             padding: 22px;
             border-radius: 14px;
+            backdrop-filter: blur(12px);
             transition: all 0.3s ease;
         }
 
         .skill:hover {
-            border-color: var(--accent-green);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
         }
 
         .skill b {
             display: block;
             font-size: 1.1rem;
             margin-bottom: 5px;
+            color: var(--text-main);
         }
 
         .skill span {
@@ -378,12 +408,14 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            backdrop-filter: blur(12px);
             transition: all 0.3s ease;
         }
 
         .project-card:hover {
-            border-color: var(--accent-green);
+            border-color: var(--accent-cyan);
             transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(56, 189, 248, 0.18);
         }
 
         .project-card h3 {
@@ -407,13 +439,14 @@
         }
 
         .project-tags span {
-            background: rgba(34, 197, 94, 0.1);
-            color: var(--accent-green);
+            background: rgba(56, 189, 248, 0.12);
+            color: var(--accent-cyan);
             padding: 4px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
             border: 1px solid var(--border-accent);
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* Timeline */
@@ -431,23 +464,26 @@
             display: flex;
             align-items: center;
             gap: 20px;
+            backdrop-filter: blur(12px);
         }
 
         .timeline-item .dot {
             width: 12px;
             height: 12px;
-            background: var(--accent-green);
+            background: var(--accent-cyan);
             border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
         }
 
         .timeline-item small {
-            color: var(--accent-green);
+            color: var(--accent-cyan);
             font-weight: 700;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
         }
 
         .timeline-item h3 {
             font-size: 1.1rem;
+            color: var(--text-main);
         }
 
         .timeline-item p {
@@ -464,11 +500,13 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
+            backdrop-filter: blur(12px);
         }
 
         .contact-box h2 {
             font-size: 2.5rem;
             margin-bottom: 15px;
+            color: var(--text-main);
         }
 
         .contact-box p {
@@ -488,6 +526,7 @@
             font-size: 0.9rem;
             border-top: 1px solid var(--border-color);
             margin-top: 60px;
+            font-family: 'Courier New', Courier, monospace;
         }
 
         /* Responsive Design */
@@ -526,7 +565,7 @@
                 top: 100%;
                 left: 0;
                 width: 100%;
-                background: rgba(14, 17, 23, 0.95);
+                background: rgba(5, 8, 17, 0.95);
                 padding: 20px;
                 border-bottom: 1px solid var(--border-color);
             }
@@ -543,12 +582,13 @@
 </head>
 
 <body>
-    <!-- Interactive Background Canvas -->
-    <canvas id="bubbleCanvas"></canvas>
+    <!-- 3D Neural Constellation Network Canvas Background -->
+    <canvas id="networkCanvas"></canvas>
 
     <!-- Header Navigation -->
     <header class="nav">
-        <a class="brand" href="#home">DA<span>.</span></a>
+        <!-- Modern Stylish Danish Aftab Logo -->
+        <a class="brand" href="#home">Danish <span>Aftab.</span></a>
         <nav id="navMenu">
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -567,13 +607,14 @@
             <div class="hero-copy">
                 <p class="eyebrow">CSE STUDENT • PYTHON DEVELOPER</p>
                 <h1>Hi, I'm <span>Danish Aftab.</span></h1>
-                <p class="lead">I build practical software projects and explore Python, automation, web development and
-                    AI-powered ideas.</p>
+                <p class="lead">I build practical software projects and explore Python, automation, web development and AI-powered ideas.</p>
 
                 <div class="buttons">
                     <a class="btn primary" href="#projects">View My Projects</a>
-                    <a class="btn ghost" href="https://github.com/danishaftab07863-ui" target="_blank"
-                        rel="noopener noreferrer">
+                    <a class="btn ghost" href="https://people-iru5mf790-dani-8f15.vercel.app/" target="_blank" rel="noopener noreferrer">
+                        PeopleHub Live ↗
+                    </a>
+                    <a class="btn ghost" href="https://github.com/danishaftab07863-ui" target="_blank" rel="noopener noreferrer">
                         <i class="fa-brands fa-github"></i> GitHub ↗
                     </a>
                 </div>
@@ -613,11 +654,8 @@
                 <h2>Learning. Building. <span>Growing.</span></h2>
             </div>
             <div class="about-content-full">
-                <p class="big">I'm a Computer Science & Engineering student focused on turning ideas into useful digital
-                    projects.</p>
-                <p>I enjoy learning Python, SQL, HTML and Java, while building projects that strengthen my programming
-                    and problem-solving skills. My current focus is growing as a Python developer and exploring voice
-                    assistants, automation and AI.</p>
+                <p class="big">I'm a Computer Science & Engineering student focused on turning ideas into useful digital projects.</p>
+                <p>I enjoy learning Python, SQL, HTML and Java, while building projects that strengthen my programming and problem-solving skills. My current focus is growing as a Python developer and exploring voice assistants, automation and AI.</p>
 
                 <div class="facts">
                     <div><strong>Father</strong><small>Aftab Alam Ansari</small></div>
@@ -650,12 +688,34 @@
                 <h2>Things I <span>build & run.</span></h2>
             </div>
             <div class="projects-grid">
+                <!-- PeopleHub HR Management Application -->
+                <div class="project-card">
+                    <div>
+                        <h3>PeopleHub — HR Management System</h3>
+                        <p>A full-stack HR management web application built to manage employee records, organizational workflows, and data tracking through an interactive interface.</p>
+                        <div class="project-tags">
+                            <span>Node.js</span>
+                            <span>Express</span>
+                            <span>MongoDB</span>
+                            <span>Vercel</span>
+                            <span>Full-Stack</span>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <a href="https://people-iru5mf790-dani-8f15.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn primary">
+                            Live Demo ↗
+                        </a>
+                        <a href="https://github.com/danishaftab07863-ui/employee-management-system" target="_blank" rel="noopener noreferrer" class="btn ghost">
+                            <i class="fa-brands fa-github"></i> Source Code
+                        </a>
+                    </div>
+                </div>
+
                 <!-- Library Book Inventory Manager Project -->
                 <div class="project-card">
                     <div>
                         <h3>Library Book Inventory Manager</h3>
-                        <p>A web application to manage library books inventory, track available titles, organize
-                            cataloging, and streamline book management.</p>
+                        <p>A web application to manage library books inventory, track available titles, organize cataloging, and streamline book management.</p>
                         <div class="project-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
@@ -679,8 +739,7 @@
                 <div class="project-card">
                     <div>
                         <h3>Amazon Web Clone</h3>
-                        <p>A responsive e-commerce web application front-end clone of Amazon featuring structured
-                            product sections, clean UI layout, and navigation.</p>
+                        <p>A responsive e-commerce web application front-end clone of Amazon featuring structured product sections, clean UI layout, and navigation.</p>
                         <div class="project-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
@@ -704,8 +763,7 @@
                 <div class="project-card">
                     <div>
                         <h3>Frontend Interview Master Guide</h3>
-                        <p>A web application containing key concepts, interactive visual guides, and foundational coding
-                            materials built to prepare frontend developers for technical interviews.</p>
+                        <p>A web application containing key concepts, interactive visual guides, and foundational coding materials built to prepare frontend developers for technical interviews.</p>
                         <div class="project-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
@@ -729,8 +787,7 @@
                 <div class="project-card">
                     <div>
                         <h3>Web Development Master Hub</h3>
-                        <p>A comprehensive centralized platform showcasing web applications, responsive templates, and
-                            modern web development projects.</p>
+                        <p>A comprehensive centralized platform showcasing web applications, responsive templates, and modern web development projects.</p>
                         <div class="project-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
@@ -790,8 +847,7 @@
                 <h2>Passions, Hobbies & <span>Favorites.</span></h2>
             </div>
             <div class="skills">
-                <div class="skill"><b>🏏 Cricket & Playing</b><span>Playing cricket matches, outdoor sports &
-                        fitness</span></div>
+                <div class="skill"><b>🏏 Cricket & Playing</b><span>Playing cricket matches, outdoor sports & fitness</span></div>
                 <div class="skill"><b>💛 Favorite Color</b><span>Yellow</span></div>
                 <div class="skill"><b>🍛 Favorite Dish</b><span>Biryani</span></div>
                 <div class="skill"><b>🏆 Favorite Player</b><span>MS Dhoni</span></div>
@@ -830,7 +886,7 @@
 
     <footer>© 2026 Danish Aftab. Built with passion & code.</footer>
 
-    <!-- Interactive Canvas & Mobile Menu Script -->
+    <!-- Interactive 3D Neural Network Script -->
     <script>
         // Mobile Navigation Toggle
         const menuToggle = document.getElementById('menuToggle');
@@ -840,15 +896,14 @@
             navMenu.classList.toggle('active');
         });
 
-        // Close mobile nav when clicking a link
         document.querySelectorAll('#navMenu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
             });
         });
 
-        // Bubble Canvas Animation
-        const canvas = document.getElementById('bubbleCanvas');
+        // Neural Network Constellation Mesh Animation
+        const canvas = document.getElementById('networkCanvas');
         const ctx = canvas.getContext('2d');
 
         let width = (canvas.width = window.innerWidth);
@@ -857,68 +912,126 @@
         window.addEventListener('resize', () => {
             width = canvas.width = window.innerWidth;
             height = canvas.height = window.innerHeight;
+            initNodes();
         });
 
-        const bubbles = [];
+        const mouse = { x: null, y: null, radius: 180 };
 
-        class Bubble {
-            constructor(x, y) {
-                this.x = x;
-                this.y = y;
-                this.size = Math.random() * 5 + 3;
-                this.maxSize = Math.random() * 20 + 10;
-                this.speedX = (Math.random() - 0.5) * 2;
-                this.speedY = Math.random() * -2 - 0.5;
-                this.opacity = 0.8;
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = null;
+            mouse.y = null;
+        });
+
+        class Node {
+            constructor() {
+                this.x = Math.random() * width;
+                this.y = Math.random() * height;
+                this.z = Math.random() * 1.5 + 0.3; // Depth factor (3D perspective)
+                this.radius = Math.random() * 2 + this.z * 1.2;
+                this.vx = (Math.random() - 0.5) * 0.5 * this.z;
+                this.vy = (Math.random() - 0.5) * 0.5 * this.z;
+                
+                // Color palette
+                const rand = Math.random();
+                if (rand > 0.7) {
+                    this.color = '245, 158, 11'; // Warm Amber Glow
+                } else if (rand > 0.3) {
+                    this.color = '56, 189, 248'; // Cyan Light
+                } else {
+                    this.color = '255, 255, 255'; // Bright Pure White
+                }
+                
+                this.waveOffset = Math.random() * Math.PI * 2;
             }
 
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                if (this.size < this.maxSize) this.size += 0.4;
-                this.opacity -= 0.015;
+            update(time) {
+                this.x += this.vx + Math.sin(time + this.waveOffset) * 0.2;
+                this.y += this.vy + Math.cos(time + this.waveOffset) * 0.2;
+
+                if (this.x < -20) this.x = width + 20;
+                if (this.x > width + 20) this.x = -20;
+                if (this.y < -20) this.y = height + 20;
+                if (this.y > height + 20) this.y = -20;
             }
 
             draw() {
+                const alpha = Math.min(1, this.z * 0.55);
                 ctx.save();
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(34, 197, 94, ${Math.max(0, this.opacity * 0.25)})`;
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${this.color}, ${alpha})`;
+                ctx.shadowBlur = this.z * 12;
+                ctx.shadowColor = `rgba(${this.color}, 0.8)`;
                 ctx.fill();
-                ctx.lineWidth = 1;
-                ctx.strokeStyle = `rgba(34, 197, 94, ${Math.max(0, this.opacity)})`;
-                ctx.stroke();
                 ctx.restore();
             }
         }
 
-        const createBubbles = (x, y) => {
-            for (let i = 0; i < 2; i++) {
-                bubbles.push(new Bubble(x, y));
+        let nodes = [];
+        function initNodes() {
+            nodes = [];
+            const count = Math.floor((width * height) / 9500);
+            for (let i = 0; i < count; i++) {
+                nodes.push(new Node());
             }
-        };
+        }
 
-        window.addEventListener('mousemove', (e) => createBubbles(e.clientX, e.clientY));
-        window.addEventListener('touchmove', (e) => {
-            if (e.touches && e.touches[0]) createBubbles(e.touches[0].clientX, e.touches[0].clientY);
-        });
+        function connect() {
+            for (let a = 0; a < nodes.length; a++) {
+                for (let b = a + 1; b < nodes.length; b++) {
+                    let dx = nodes[a].x - nodes[b].x;
+                    let dy = nodes[a].y - nodes[b].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
 
-        function animate() {
-            ctx.clearRect(0, 0, width, height);
+                    if (dist < 130) {
+                        let alpha = (1 - dist / 130) * 0.35 * Math.min(nodes[a].z, nodes[b].z);
+                        ctx.strokeStyle = `rgba(56, 189, 248, ${alpha})`;
+                        ctx.lineWidth = 0.7 * Math.min(nodes[a].z, nodes[b].z);
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[a].x, nodes[a].y);
+                        ctx.lineTo(nodes[b].x, nodes[b].y);
+                        ctx.stroke();
+                    }
+                }
 
-            for (let i = 0; i < bubbles.length; i++) {
-                bubbles[i].update();
-                bubbles[i].draw();
+                if (mouse.x !== null) {
+                    let mdx = nodes[a].x - mouse.x;
+                    let mdy = nodes[a].y - mouse.y;
+                    let mdist = Math.sqrt(mdx * mdx + mdy * mdy);
 
-                if (bubbles[i].opacity <= 0) {
-                    bubbles.splice(i, 1);
-                    i--;
+                    if (mdist < mouse.radius) {
+                        let mAlpha = (1 - mdist / mouse.radius) * 0.6;
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${mAlpha})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(nodes[a].x, nodes[a].y);
+                        ctx.lineTo(mouse.x, mouse.y);
+                        ctx.stroke();
+                    }
                 }
             }
+        }
 
+        let time = 0;
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            time += 0.015;
+
+            for (let i = 0; i < nodes.length; i++) {
+                nodes[i].update(time);
+                nodes[i].draw();
+            }
+
+            connect();
             requestAnimationFrame(animate);
         }
 
+        initNodes();
         animate();
     </script>
 </body>
